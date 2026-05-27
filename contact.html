@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | 男の着物</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; background: #faf9f7; color: #2c2c2c; }
+    header { background: #1a1a1a; color: #e8e0d0; padding: 2rem 1.5rem; text-align: center; }
+    header h1 { font-size: 1.8rem; letter-spacing: 0.2em; }
+    header a { color: #a09080; font-size: 0.85rem; text-decoration: none; }
+    header a:hover { color: #e8e0d0; }
+    main { max-width: 640px; margin: 3rem auto; padding: 0 1.5rem; }
+    h2 { font-size: 1.6rem; margin-bottom: 1rem; }
+    .desc { line-height: 1.9; color: #555; margin-bottom: 2.5rem; font-size: 0.95rem; }
+    .form-group { margin-bottom: 1.5rem; }
+    label { display: block; font-size: 0.9rem; margin-bottom: 0.5rem; color: #3a3a3a; }
+    label span { color: #c0392b; margin-left: 0.3rem; font-size: 0.8rem; }
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea { width: 100%; padding: 0.8rem 1rem; border: 1px solid #d5d0c8; border-radius: 3px; font-size: 0.95rem; font-family: inherit; background: #fff; color: #2c2c2c; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: #8b6914; }
+    textarea { resize: vertical; min-height: 160px; }
+    .submit-btn { display: block; width: 100%; padding: 1rem; background: #1a1a1a; color: #e8e0d0; border: none; font-size: 1rem; letter-spacing: 0.1em; cursor: pointer; border-radius: 2px; font-family: inherit; margin-top: 2rem; }
+    .submit-btn:hover { background: #3a3a3a; }
+    .back { display: inline-block; margin-top: 2rem; color: #8b6914; text-decoration: none; font-size: 0.9rem; }
+    .back:hover { text-decoration: underline; }
+    footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: #999; margin-top: 4rem; border-top: 1px solid #e5e0d8; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">← 男の着物トップへ</a>
+    <h1>男の着物</h1>
+  </header>
+  <main>
+    <h2>お問い合わせ</h2>
+    <p class="desc">買取のご相談・記事へのご質問など、お気軽にどうぞ。<br>通常2〜3営業日以内にご返信します。</p>
+
+    <form action="https://formsubmit.co/tofu102.15@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="【男の着物】お問い合わせが届きました">
+      <input type="hidden" name="_next" value="https://mens-kimono.pages.dev/thanks.html">
+      <input type="hidden" name="_captcha" value="false">
+
+      <div class="form-group">
+        <label>お名前 <span>必須</span></label>
+        <input type="text" name="name" required placeholder="例：山田 太郎">
+      </div>
+
+      <div class="form-group">
+        <label>メールアドレス <span>必須</span></label>
+        <input type="email" name="email" required placeholder="例：example@gmail.com">
+      </div>
+
+      <div class="form-group">
+        <label>お問い合わせ種別</label>
+        <select name="type">
+          <option value="買取のご相談">買取のご相談</option>
+          <option value="記事への質問">記事への質問</option>
+          <option value="その他">その他</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>お問い合わせ内容 <span>必須</span></label>
+        <textarea name="message" required placeholder="買取の場合：品物の種類・点数・状態などをお書きください。"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">送信する</button>
+    </form>
+
+    <a class="back" href="index.html">← トップに戻る</a>
+  </main>
+  <footer>&copy; 2026 男の着物 mens-kimono</footer>
+</body>
+</html>
