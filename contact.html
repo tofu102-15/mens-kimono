@@ -62,6 +62,14 @@
     #backToTop { position: fixed; bottom: 2rem; right: 2rem; background: #1a1a1a; color: #e8e0d0; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; border: 1px solid #444; }
     #backToTop.visible { opacity: 1; pointer-events: auto; }
     #backToTop:hover { background: #3a3a3a; }
+
+    nav a.active { color: #fff !important; background: #2a2a2a; }
+
+    @media (max-width: 600px) {
+      .mobile-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; background: #8b6914; z-index: 998; text-align: center; padding: 0.9rem; }
+      .mobile-cta a { color: #fff; text-decoration: none; font-size: 0.9rem; letter-spacing: 0.05em; }
+      body { padding-bottom: 3.5rem; }
+    }
   </style>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="男着物ほおずき堂">
@@ -115,6 +123,16 @@
     </div>
 
     <p style="font-size:0.82rem; color:#888; margin-bottom:1.5rem; text-align:center;">またはフォームからお問い合わせください ↓</p>
+
+    <div style="background:#f9f8f6; border:1px solid #e5e0d8; border-radius:6px; padding:1rem 1.3rem; margin-bottom:1.5rem; font-size:0.85rem; line-height:2; color:#555;">
+      <strong style="display:block; margin-bottom:0.4rem; color:#1a1a1a;">📝 フォーム入力のヒント</strong>
+      <ul style="margin-left:1.2rem;">
+        <li><strong>買取のご相談</strong>：品物の種類・点数・状態（シミ・汚れの有無）をご記入ください。写真はLINEからお送りいただけます。</li>
+        <li><strong>着物に関するご質問</strong>：お気軽にどうぞ。記事内容についての補足もお答えします。</li>
+        <li><strong>返信先メールアドレス</strong>：返信のみに使用します。第三者への提供はしません。</li>
+        <li><strong>写真を送りたい場合</strong>：上のLINEボタンからご連絡いただくと、写真付きでやり取りできます。</li>
+      </ul>
+    </div>
 
     <form action="https://formsubmit.co/tofu102.15@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="【男の着物】お問い合わせが届きました">
@@ -171,6 +189,17 @@
     document.getElementById('backToTop').addEventListener('click', function(e) {
       e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});
     });
+  </script>
+  <div class="mobile-cta">
+    <a href="kaitori.html">&#128176; 着物の買取相談はこちら</a>
+  </div>
+  <script>
+    (function() {
+      var p = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('nav a').forEach(function(a) {
+        if (a.getAttribute('href') === p) a.classList.add('active');
+      });
+    })();
   </script>
 </body>
 </html>

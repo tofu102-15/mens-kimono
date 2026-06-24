@@ -66,6 +66,14 @@
     #backToTop { position: fixed; bottom: 2rem; right: 2rem; background: #1a1a1a; color: #e8e0d0; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; border: 1px solid #444; }
     #backToTop.visible { opacity: 1; pointer-events: auto; }
     #backToTop:hover { background: #3a3a3a; }
+
+    nav a.active { color: #fff !important; background: #2a2a2a; }
+
+    @media (max-width: 600px) {
+      .mobile-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; background: #8b6914; z-index: 998; text-align: center; padding: 0.9rem; }
+      .mobile-cta a { color: #fff; text-decoration: none; font-size: 0.9rem; letter-spacing: 0.05em; }
+      body { padding-bottom: 3.5rem; }
+    }
   </style>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="男着物ほおずき堂">
@@ -224,6 +232,18 @@
       で詳しく解説しています。
     </div>
 
+    <h3>運営情報・ご安心ください</h3>
+    <div style="background:#fff; border:1px solid #e5e0d8; border-radius:6px; overflow:hidden; margin-bottom:2rem;">
+      <table style="width:100%; border-collapse:collapse; font-size:0.9rem;">
+        <tr><td style="padding:0.8rem 1rem; border-bottom:1px solid #f0ece8; background:#f9f8f6; width:35%; font-weight:bold; color:#3a3a3a;">運営者</td><td style="padding:0.8rem 1rem; border-bottom:1px solid #f0ece8;">着物名人（男着物ほおずき堂）</td></tr>
+        <tr><td style="padding:0.8rem 1rem; border-bottom:1px solid #f0ece8; background:#f9f8f6; font-weight:bold; color:#3a3a3a;">所在地・エリア</td><td style="padding:0.8rem 1rem; border-bottom:1px solid #f0ece8;">愛知県在住 ／ 発送による全国対応</td></tr>
+        <tr><td style="padding:0.8rem 1rem; border-bottom:1px solid #f0ece8; background:#f9f8f6; font-weight:bold; color:#3a3a3a;">古物商許可</td><td style="padding:0.8rem 1rem; border-bottom:1px solid #f0ece8;">岐阜県公安委員会 第53102000916号</td></tr>
+        <tr><td style="padding:0.8rem 1rem; border-bottom:1px solid #f0ece8; background:#f9f8f6; font-weight:bold; color:#3a3a3a;">査定基準</td><td style="padding:0.8rem 1rem; border-bottom:1px solid #f0ece8;">素材・状態・産地・希少性を総合的に判断します。シミや汚れがあっても対象です。</td></tr>
+        <tr><td style="padding:0.8rem 1rem; border-bottom:1px solid #f0ece8; background:#f9f8f6; font-weight:bold; color:#3a3a3a;">キャンセルについて</td><td style="padding:0.8rem 1rem; border-bottom:1px solid #f0ece8;">査定金額をご連絡後、ご承諾いただいてから発送をお願いしています。査定後にお断りいただいた場合は着払いにてご返送します。</td></tr>
+        <tr><td style="padding:0.8rem 1rem; background:#f9f8f6; font-weight:bold; color:#3a3a3a;">個人情報の扱い</td><td style="padding:0.8rem 1rem;">お預かりした個人情報は買取目的のみに使用します。第三者への提供は行いません。詳しくは<a href="privacy.html" style="color:#8b6914;">プライバシーポリシー</a>をご覧ください。</td></tr>
+      </table>
+    </div>
+
     <a class="back" href="index.html">← トップに戻る</a>
   </main>
   <footer>
@@ -246,6 +266,17 @@
     document.getElementById('backToTop').addEventListener('click', function(e) {
       e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});
     });
+  </script>
+  <div class="mobile-cta">
+    <a href="kaitori.html">&#128176; 着物の買取相談はこちら</a>
+  </div>
+  <script>
+    (function() {
+      var p = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('nav a').forEach(function(a) {
+        if (a.getAttribute('href') === p) a.classList.add('active');
+      });
+    })();
   </script>
 </body>
 </html>

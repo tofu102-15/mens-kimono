@@ -83,6 +83,14 @@
     #backToTop { position: fixed; bottom: 2rem; right: 2rem; background: #1a1a1a; color: #e8e0d0; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; border: 1px solid #444; }
     #backToTop.visible { opacity: 1; pointer-events: auto; }
     #backToTop:hover { background: #3a3a3a; }
+
+    nav a.active { color: #fff !important; background: #2a2a2a; }
+
+    @media (max-width: 600px) {
+      .mobile-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; background: #8b6914; z-index: 998; text-align: center; padding: 0.9rem; }
+      .mobile-cta a { color: #fff; text-decoration: none; font-size: 0.9rem; letter-spacing: 0.05em; }
+      body { padding-bottom: 3.5rem; }
+    }
   </style>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="男着物ほおずき堂">
@@ -233,6 +241,17 @@
     document.getElementById('backToTop').addEventListener('click', function(e) {
       e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});
     });
+  </script>
+  <div class="mobile-cta">
+    <a href="kaitori.html">&#128176; 着物の買取相談はこちら</a>
+  </div>
+  <script>
+    (function() {
+      var p = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('nav a').forEach(function(a) {
+        if (a.getAttribute('href') === p) a.classList.add('active');
+      });
+    })();
   </script>
 </body>
 </html>

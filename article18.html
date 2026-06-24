@@ -59,6 +59,14 @@
     .footer-links a { color: #a09080; text-decoration: none; }
     .footer-links a:hover { color: #e8e0d0; }
     @media (max-width: 600px) { .header-inner { flex-direction: column; } .nav-inner { flex-wrap: wrap; } nav a { padding: 0.7rem 1rem; } .related-grid { grid-template-columns: 1fr; } }
+
+    nav a.active { color: #fff !important; background: #2a2a2a; }
+
+    @media (max-width: 600px) {
+      .mobile-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; background: #8b6914; z-index: 998; text-align: center; padding: 0.9rem; }
+      .mobile-cta a { color: #fff; text-decoration: none; font-size: 0.9rem; letter-spacing: 0.05em; }
+      body { padding-bottom: 3.5rem; }
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -230,6 +238,17 @@
     document.getElementById('backToTop').addEventListener('click', function(e) {
       e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});
     });
+  </script>
+  <div class="mobile-cta">
+    <a href="kaitori.html">&#128176; 着物の買取相談はこちら</a>
+  </div>
+  <script>
+    (function() {
+      var p = location.pathname.split('/').pop() || 'index.html';
+      document.querySelectorAll('nav a').forEach(function(a) {
+        if (a.getAttribute('href') === p) a.classList.add('active');
+      });
+    })();
   </script>
 </body>
 </html>
