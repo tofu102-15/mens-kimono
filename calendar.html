@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="男性着物の年間カレンダー。月別に何を着るか・どんなイベントに着ていけるかをまとめました。袷・単衣・浴衣の切り替え目安も解説。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="男の着物">
+  <meta property="og:title" content="着物カレンダー（月別ガイド） | 男の着物">
+  <meta property="og:description" content="月別に何を着るか・どんなイベントに着ていけるかをまとめた年間カレンダー。">
+  <meta property="og:url" content="https://mens-kimono.pages.dev/calendar.html">
+  <meta property="og:image" content="https://mens-kimono.pages.dev/images/hero.png">
+  <title>着物カレンダー（月別ガイド） | 男の着物</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; background: #faf9f7; color: #2c2c2c; }
+    header { background: #1a1a1a; color: #e8e0d0; }
+    .header-inner { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .header-text h1 { font-size: 1.8rem; letter-spacing: 0.2em; margin-top: 0.4rem; }
+    .header-text a { color: #a09080; font-size: 0.85rem; text-decoration: none; display: block; }
+    .header-text a:hover { color: #e8e0d0; }
+    .header-mascot { width: 70px; height: 70px; border-radius: 50%; overflow: hidden; border: 2px solid #8b6914; flex-shrink: 0; }
+    .header-mascot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    nav { background: #111; border-top: 1px solid #2a2a2a; }
+    .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; display: flex; }
+    nav a { color: #d0c0a8; text-decoration: none; font-size: 0.85rem; padding: 0.8rem 1.2rem; letter-spacing: 0.08em; display: block; transition: color 0.2s, background 0.2s; border-right: 1px solid #2a2a2a; }
+    nav a:first-child { border-left: 1px solid #2a2a2a; }
+    nav a:hover { color: #fff; background: #1a1a1a; }
+    main { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
+    h2 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .page-desc { color: #666; font-size: 0.9rem; line-height: 1.8; margin-bottom: 2.5rem; }
+    .season-nav { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .season-nav a { font-size: 0.82rem; color: #8b6914; text-decoration: none; border: 1px solid #d5cfc5; padding: 0.3rem 0.9rem; border-radius: 2px; }
+    .season-nav a:hover { background: #f4f2ee; }
+    .month-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem; }
+    .month-card { background: #fff; border: 1px solid #e5e0d8; border-radius: 6px; overflow: hidden; }
+    .month-head { padding: 0.8rem 1rem; display: flex; align-items: baseline; gap: 0.5rem; }
+    .month-num { font-size: 1.8rem; font-weight: bold; line-height: 1; }
+    .month-name { font-size: 0.8rem; color: #888; }
+    .month-type { font-size: 0.72rem; padding: 0.15rem 0.6rem; border-radius: 2px; margin-left: auto; }
+    .type-awase { background: #e8eaf5; color: #2a2a5a; }
+    .type-hitoe { background: #e8f0e8; color: #2a5a2a; }
+    .type-yukata { background: #fff3e0; color: #8b5000; }
+    .month-body { padding: 0 1rem 1rem; }
+    .month-kimono { font-size: 0.88rem; font-weight: bold; color: #1a1a1a; margin-bottom: 0.5rem; }
+    .month-events { list-style: none; font-size: 0.82rem; color: #555; line-height: 2; }
+    .month-events li::before { content: "・"; color: #8b6914; }
+    .month-tip { font-size: 0.78rem; color: #888; margin-top: 0.5rem; line-height: 1.7; border-top: 1px solid #f0ece8; padding-top: 0.5rem; }
+    .season-section { margin-bottom: 2rem; }
+    .season-head { font-size: 1rem; background: #1a1a1a; color: #e8e0d0; padding: 0.5rem 1rem; border-radius: 3px; margin-bottom: 0.8rem; letter-spacing: 0.1em; }
+    .tip { background: #f4f2ee; border-left: 3px solid #8b6914; padding: 1rem 1.2rem; margin: 1.5rem 0; font-size: 0.9rem; line-height: 1.9; }
+    .tip a { color: #8b6914; }
+    .back { display: inline-block; margin-top: 3rem; color: #8b6914; text-decoration: none; font-size: 0.9rem; }
+    .back:hover { text-decoration: underline; }
+    footer { background: #1a1a1a; color: #6a5a4a; text-align: center; padding: 2rem; font-size: 0.8rem; letter-spacing: 0.08em; margin-top: 4rem; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .footer-links a { color: #a09080; text-decoration: none; }
+    .footer-links a:hover { color: #e8e0d0; }
+    @media (max-width: 600px) {
+      .header-inner { flex-direction: column; }
+      .nav-inner { flex-wrap: wrap; }
+      nav a { padding: 0.7rem 1rem; }
+      .month-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 400px) { .month-grid { grid-template-columns: 1fr; } }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCT2HQM328"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MCT2HQM328');
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-text">
+        <a href="index.html">← 男の着物トップへ</a>
+        <h1>男の着物</h1>
+      </div>
+      <div class="header-mascot">
+        <img src="images/houzuki.png" alt="ほおずき">
+      </div>
+    </div>
+  </header>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">記事一覧</a>
+      <a href="kaitori.html">買取</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="glossary.html">用語集</a>
+      <a href="about.html">店主紹介</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+  </nav>
+
+  <main>
+    <h2>着物カレンダー（月別ガイド）</h2>
+    <p class="page-desc">月ごとに「何を着るか」「どんなイベントに着ていけるか」をまとめました。着物の種類の切り替え目安としても使えます。</p>
+
+    <div class="season-nav">
+      <a href="#spring">春（3〜5月）</a>
+      <a href="#summer">夏（6〜8月）</a>
+      <a href="#autumn">秋（9〜11月）</a>
+      <a href="#winter">冬（12〜2月）</a>
+    </div>
+
+    <!-- 春 -->
+    <div class="season-section" id="spring">
+      <div class="season-head">春（3〜5月）</div>
+      <div class="month-grid">
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">3</span><span class="month-name">月</span>
+            <span class="month-type type-awase">袷</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">袷（ウール・木綿）</div>
+            <ul class="month-events">
+              <li>ひな祭り</li>
+              <li>卒業式・入学式</li>
+              <li>お花見（月末）</li>
+            </ul>
+            <p class="month-tip">まだ寒い日もある。ウールの袷が活躍。羽織を持ち歩くと安心。</p>
+          </div>
+        </div>
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">4</span><span class="month-name">月</span>
+            <span class="month-type type-awase">袷</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">袷（木綿・化繊）</div>
+            <ul class="month-events">
+              <li>お花見</li>
+              <li>春祭り</li>
+              <li>新元号関連行事</li>
+            </ul>
+            <p class="month-tip">着物が一番快適な季節のひとつ。袷の木綿が気持ちよく着られる。</p>
+          </div>
+        </div>
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">5</span><span class="month-name">月</span>
+            <span class="month-type type-awase">袷→単衣</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">袷〜単衣の切り替え</div>
+            <ul class="month-events">
+              <li>端午の節句</li>
+              <li>ゴールデンウィーク</li>
+              <li>各地の春祭り</li>
+            </ul>
+            <p class="month-tip">下旬は暑くなる。気温に合わせて単衣へ移行するタイミング。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 夏 -->
+    <div class="season-section" id="summer">
+      <div class="season-head">夏（6〜8月）</div>
+      <div class="month-grid">
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">6</span><span class="month-name">月</span>
+            <span class="month-type type-hitoe">単衣</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">単衣（綿麻・麻）</div>
+            <ul class="month-events">
+              <li>夏越の祓（6月末）</li>
+              <li>早めの夏祭り</li>
+            </ul>
+            <p class="month-tip">梅雨時期。雨対策を忘れずに。洗える素材が安心。</p>
+          </div>
+        </div>
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">7</span><span class="month-name">月</span>
+            <span class="month-type type-yukata">浴衣</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">浴衣・薄物</div>
+            <ul class="month-events">
+              <li>七夕</li>
+              <li>夏祭り・縁日</li>
+              <li>花火大会</li>
+              <li>祇園祭（京都）</li>
+            </ul>
+            <p class="month-tip">浴衣のメインシーズン到来。花火大会に着ていくのが定番。</p>
+          </div>
+        </div>
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">8</span><span class="month-name">月</span>
+            <span class="month-type type-yukata">浴衣</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">浴衣・薄物</div>
+            <ul class="month-events">
+              <li>お盆・盆踊り</li>
+              <li>花火大会（各地）</li>
+              <li>夏フェス・縁日</li>
+            </ul>
+            <p class="month-tip">一年で一番浴衣が似合う季節。汗対策の肌着を活用しよう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 秋 -->
+    <div class="season-section" id="autumn">
+      <div class="season-head">秋（9〜11月）</div>
+      <div class="month-grid">
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">9</span><span class="month-name">月</span>
+            <span class="month-type type-hitoe">単衣</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">単衣（木綿・化繊）</div>
+            <ul class="month-events">
+              <li>お月見（中秋の名月）</li>
+              <li>秋祭り</li>
+              <li>敬老の日</li>
+            </ul>
+            <p class="month-tip">残暑あり。前半は浴衣も可。後半から単衣へ完全移行。</p>
+          </div>
+        </div>
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">10</span><span class="month-name">月</span>
+            <span class="month-type type-awase">袷</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">袷（木綿・絹）</div>
+            <ul class="month-events">
+              <li>秋祭り（各地）</li>
+              <li>文化の日前後のイベント</li>
+              <li>紅葉狩り</li>
+            </ul>
+            <p class="month-tip">着物が最高に快適な黄金シーズン。どんな素材でも着やすい。はじめての一枚を選ぶのにもおすすめ。</p>
+          </div>
+        </div>
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">11</span><span class="month-name">月</span>
+            <span class="month-type type-awase">袷</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">袷（ウール・絹）</div>
+            <ul class="month-events">
+              <li>七五三</li>
+              <li>文化の日</li>
+              <li>紅葉のお出かけ</li>
+            </ul>
+            <p class="month-tip">朝夕冷えてくる。羽織を合わせて防寒対策を。ウールが活躍するシーズン。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 冬 -->
+    <div class="season-section" id="winter">
+      <div class="season-head">冬（12〜2月）</div>
+      <div class="month-grid">
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">12</span><span class="month-name">月</span>
+            <span class="month-type type-awase">袷</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">袷（ウール・絹）＋羽織</div>
+            <ul class="month-events">
+              <li>忘年会</li>
+              <li>クリスマス</li>
+              <li>年末の挨拶回り</li>
+            </ul>
+            <p class="month-tip">インナーにヒートテックを活用。下は和装用股引があると快適。</p>
+          </div>
+        </div>
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">1</span><span class="month-name">月</span>
+            <span class="month-type type-awase">袷</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">袷（ウール）＋道行コート</div>
+            <ul class="month-events">
+              <li>元旦・初詣</li>
+              <li>成人式</li>
+              <li>新年会</li>
+            </ul>
+            <p class="month-tip">初詣に着物は特におすすめ。一年で一番着物が似合う行事のひとつ。</p>
+          </div>
+        </div>
+        <div class="month-card">
+          <div class="month-head">
+            <span class="month-num">2</span><span class="month-name">月</span>
+            <span class="month-type type-awase">袷</span>
+          </div>
+          <div class="month-body">
+            <div class="month-kimono">袷（ウール）＋羽織</div>
+            <ul class="month-events">
+              <li>節分</li>
+              <li>バレンタイン</li>
+              <li>梅まつり</li>
+            </ul>
+            <p class="month-tip">最も寒い時期。防寒を万全に。ウールの袷は保温性が高く重宝する。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <strong>着物の種類の切り替え目安</strong><br>
+      袷（10〜5月）→ 単衣（6月・9月）→ 薄物・浴衣（7〜8月）が基本。ただし気温・場所・体質によって柔軟に。「暑いと感じたら薄い着物、寒いと感じたら厚い着物」でOKです。<br><br>
+      →詳しくは<a href="article12.html">季節別の着物の選び方</a>をご覧ください。
+    </div>
+
+    <a class="back" href="index.html">← トップに戻る</a>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">記事一覧</a>
+      <a href="kaitori.html">買取</a>
+      <a href="about.html">店主紹介</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="glossary.html">用語集</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
+    &copy; 2026 男の着物 mens-kimono
+  </footer>
+</body>
+</html>
