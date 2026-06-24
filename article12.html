@@ -65,6 +65,10 @@
     .share-label { font-size: 0.85rem; color: #888; }
     .share-btn-x { display: inline-flex; align-items: center; gap: 0.4rem; background: #000; color: #fff; text-decoration: none; padding: 0.55rem 1.2rem; border-radius: 4px; font-size: 0.82rem; letter-spacing: 0.03em; }
     .share-btn-x:hover { background: #333; }
+
+    #backToTop { position: fixed; bottom: 2rem; right: 2rem; background: #1a1a1a; color: #e8e0d0; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; border: 1px solid #444; }
+    #backToTop.visible { opacity: 1; pointer-events: auto; }
+    #backToTop:hover { background: #3a3a3a; }
   </style>
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="男の着物">
@@ -80,6 +84,24 @@
     gtag('js', new Date());
     gtag('config', 'G-MCT2HQM328');
   </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "季節別の着物の選び方（春夏秋冬）",
+  "datePublished": "2026-06-24",
+  "author": {
+    "@type": "Person",
+    "name": "着物名人"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "男の着物",
+    "url": "https://mens-kimono.pages.dev"
+  },
+  "url": "https://mens-kimono.pages.dev/article12.html"
+}
+  </script>
 </head>
 <body>
   <header>
@@ -89,7 +111,7 @@
         <h1>男の着物</h1>
       </div>
       <div class="header-mascot">
-        <img src="images/houzuki.png" alt="ほおずき">
+        <img loading="lazy" src="images/houzuki.png" alt="ほおずき">
       </div>
     </div>
   </header>
@@ -185,5 +207,14 @@
     </div>
     &copy; 2026 男の着物 mens-kimono
   </footer>
+  <a id="backToTop" href="#" aria-label="ページトップに戻る">&#9650;</a>
+  <script>
+    window.addEventListener('scroll', function() {
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+    });
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});
+    });
+  </script>
 </body>
 </html>

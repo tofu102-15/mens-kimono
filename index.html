@@ -195,6 +195,10 @@
     .related-card:hover { border-color: #8b6914; }
     .read-time { color: #aaa; margin-left: 0.5rem; font-size: 0.8rem; }
     @media (max-width: 480px) { .related-grid { grid-template-columns: 1fr; } }
+
+    #backToTop { position: fixed; bottom: 2rem; right: 2rem; background: #1a1a1a; color: #e8e0d0; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; border: 1px solid #444; }
+    #backToTop.visible { opacity: 1; pointer-events: auto; }
+    #backToTop:hover { background: #3a3a3a; }
   </style>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="男の着物">
@@ -221,7 +225,7 @@
         <p class="mascot-name">マスコット：ほおずき（オシキャット）</p>
       </div>
       <div class="header-mascot">
-        <img src="images/houzuki.png" alt="マスコット ほおずき">
+        <img loading="lazy" src="images/houzuki.png" alt="マスコット ほおずき">
       </div>
     </div>
   </header>
@@ -241,7 +245,7 @@
   <div class="hero">
     <div class="hero-inner">
       <div class="hero-image">
-        <img src="images/hero.png" alt="着物名人">
+        <img loading="lazy" src="images/hero.png" alt="着物名人">
       </div>
       <div class="hero-text">
         <div class="hero-catch">男の着物、<br><span>はじめませんか？</span></div>
@@ -297,6 +301,12 @@
         <span class="category-count">4記事</span>
       </div>
       <div class="article-grid">
+        <a class="article-card" href="article18.html">
+          <span class="card-label label-buy">サイズ</span>
+          <h3>着物のサイズ測り方ガイド（裄・身丈・身幅）</h3>
+          <p>自宅でできる正確な測り方と身長別サイズ対応表。リサイクル着物選びに必須の知識。</p>
+          <div class="card-date">2026-06-24 ・ 約3分</div>
+        </a>
         <a class="article-card" href="article1.html">
           <span class="card-label label-buy">選び方</span>
           <h3>男性の着物、はじめての一枚の選び方</h3>
@@ -433,5 +443,14 @@
     &copy; 2026 男の着物 mens-kimono
   </footer>
 
+  <a id="backToTop" href="#" aria-label="ページトップに戻る">&#9650;</a>
+  <script>
+    window.addEventListener('scroll', function() {
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+    });
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});
+    });
+  </script>
 </body>
 </html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="着物のサイズ（裄・身丈・身幅）の測り方を解説。自宅で一人でできる正確な測り方と、リサイクル着物選びに使えるサイズ対応表つき。">
+  <title>着物のサイズ測り方ガイド（裄・身丈・身幅） | 男の着物</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; background: #faf9f7; color: #2c2c2c; }
+    header { background: #1a1a1a; color: #e8e0d0; }
+    .header-inner { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
+    .header-text h1 { font-size: 1.8rem; letter-spacing: 0.2em; margin-top: 0.4rem; }
+    .header-text a { color: #a09080; font-size: 0.85rem; text-decoration: none; display: block; }
+    .header-text a:hover { color: #e8e0d0; }
+    .header-mascot { width: 70px; height: 70px; border-radius: 50%; overflow: hidden; border: 2px solid #8b6914; flex-shrink: 0; }
+    .header-mascot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    nav { background: #111; border-top: 1px solid #2a2a2a; }
+    .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; display: flex; }
+    nav a { color: #d0c0a8; text-decoration: none; font-size: 0.85rem; padding: 0.8rem 1.2rem; letter-spacing: 0.08em; display: block; transition: color 0.2s, background 0.2s; border-right: 1px solid #2a2a2a; }
+    nav a:first-child { border-left: 1px solid #2a2a2a; }
+    nav a:hover { color: #fff; background: #1a1a1a; }
+    .breadcrumb { background: #f0ece8; border-bottom: 1px solid #e5e0d8; }
+    .bc-inner { max-width: 900px; margin: 0 auto; padding: 0.6rem 1.5rem; font-size: 0.8rem; color: #888; display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: center; }
+    .bc-inner a { color: #8b6914; text-decoration: none; }
+    .bc-sep { color: #bbb; }
+    main { max-width: 720px; margin: 3rem auto; padding: 0 1.5rem; }
+    h2 { font-size: 1.6rem; margin-bottom: 2rem; line-height: 1.5; }
+    .meta { font-size: 0.85rem; color: #999; margin-bottom: 2.5rem; }
+    .read-time { color: #aaa; margin-left: 0.5rem; font-size: 0.8rem; }
+    h3 { font-size: 1.1rem; margin: 2.5rem 0 1rem; color: #3a3a3a; border-left: 3px solid #8b6914; padding-left: 0.8rem; }
+    p { line-height: 2; margin-bottom: 1.2rem; font-size: 1rem; }
+    .tip { background: #f4f2ee; border-left: 3px solid #8b6914; padding: 1rem 1.2rem; margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.9; }
+    table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.93rem; }
+    th { background: #1a1a1a; color: #e8e0d0; padding: 0.7rem 1rem; text-align: left; }
+    td { padding: 0.7rem 1rem; border-bottom: 1px solid #e5e0d8; vertical-align: top; line-height: 1.8; }
+    tr:nth-child(even) td { background: #f4f2ee; }
+    .size-box { background: #fff; border: 2px solid #1a1a1a; border-radius: 6px; padding: 1.5rem; margin: 1.5rem 0; }
+    .size-box h4 { font-size: 1rem; margin-bottom: 1rem; color: #1a1a1a; display: flex; align-items: center; gap: 0.5rem; }
+    .size-num { background: #1a1a1a; color: #e8e0d0; width: 1.6rem; height: 1.6rem; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.78rem; flex-shrink: 0; }
+    .size-box ol { margin-left: 1.2rem; line-height: 2.1; font-size: 0.93rem; }
+    .size-box .formula { background: #f4f2ee; padding: 0.5rem 1rem; border-radius: 3px; margin-top: 0.8rem; font-size: 0.88rem; color: #555; }
+    .related-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #e5e0d8; }
+    .related-section h3 { font-size: 0.95rem; letter-spacing: 0.1em; margin-bottom: 1rem; color: #555; }
+    .related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .related-card { display: block; background: #fff; border: 1px solid #e5e0d8; border-radius: 4px; padding: 1rem 1.2rem; text-decoration: none; color: #1a1a1a; font-size: 0.88rem; line-height: 1.6; transition: border-color 0.2s; }
+    .related-card:hover { border-color: #8b6914; }
+    .share-section { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid #e5e0d8; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .share-label { font-size: 0.85rem; color: #888; }
+    .share-btn-x { display: inline-flex; align-items: center; gap: 0.4rem; background: #000; color: #fff; text-decoration: none; padding: 0.55rem 1.2rem; border-radius: 4px; font-size: 0.82rem; }
+    .share-btn-x:hover { background: #333; }
+    .back { display: inline-block; margin-top: 3rem; color: #8b6914; text-decoration: none; font-size: 0.9rem; }
+    .back:hover { text-decoration: underline; }
+    #backToTop { position: fixed; bottom: 2rem; right: 2rem; background: #1a1a1a; color: #e8e0d0; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; border: 1px solid #444; }
+    #backToTop.visible { opacity: 1; pointer-events: auto; }
+    #backToTop:hover { background: #3a3a3a; }
+    footer { background: #1a1a1a; color: #6a5a4a; text-align: center; padding: 2rem; font-size: 0.8rem; letter-spacing: 0.08em; margin-top: 4rem; }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .footer-links a { color: #a09080; text-decoration: none; }
+    .footer-links a:hover { color: #e8e0d0; }
+    @media (max-width: 600px) { .header-inner { flex-direction: column; } .nav-inner { flex-wrap: wrap; } nav a { padding: 0.7rem 1rem; } .related-grid { grid-template-columns: 1fr; } }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "着物のサイズ測り方ガイド（裄・身丈・身幅）",
+    "datePublished": "2026-06-24",
+    "author": {"@type": "Person", "name": "着物名人"},
+    "publisher": {"@type": "Organization", "name": "男の着物", "url": "https://mens-kimono.pages.dev"},
+    "url": "https://mens-kimono.pages.dev/article18.html"
+  }
+  </script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="男の着物">
+  <meta property="og:title" content="着物のサイズ測り方ガイド（裄・身丈・身幅） | 男の着物">
+  <meta property="og:description" content="着物のサイズ（裄・身丈・身幅）の測り方を解説。自宅で一人でできる測り方とリサイクル着物選びに使えるサイズ対応表つき。">
+  <meta property="og:url" content="https://mens-kimono.pages.dev/article18.html">
+  <meta property="og:image" content="https://mens-kimono.pages.dev/images/hero.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MCT2HQM328"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MCT2HQM328');
+  </script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-text">
+        <a href="index.html">← 男の着物トップへ</a>
+        <h1>男の着物</h1>
+      </div>
+      <div class="header-mascot">
+        <img loading="lazy" src="images/houzuki.png" alt="ほおずき">
+      </div>
+    </div>
+  </header>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">記事一覧</a>
+      <a href="kaitori.html">買取</a>
+      <a href="calendar.html">着物カレンダー</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="glossary.html">用語集</a>
+      <a href="about.html">店主紹介</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <div class="bc-inner">
+      <a href="index.html">トップ</a>
+      <span class="bc-sep">›</span>
+      <span>選び方・買い方</span>
+      <span class="bc-sep">›</span>
+      <span>着物のサイズ測り方ガイド</span>
+    </div>
+  </div>
+
+  <main>
+    <div class="meta">2026-06-24<span class="read-time"> ・ 約3分で読めます</span></div>
+    <h2>着物のサイズ測り方ガイド（裄・身丈・身幅）</h2>
+
+    <p>「着物を買いたいけどサイズがよくわからない」という声は多い。洋服と違って着物には独自の測り方があり、最初は戸惑うことも多い。この記事では、男性が着物を選ぶときに必要な3つのサイズの測り方を、自宅で一人でできる方法で解説する。</p>
+
+    <h3>男性の着物で確認すべき3つのサイズ</h3>
+    <table>
+      <tr><th>サイズ</th><th>場所</th><th>重要度</th></tr>
+      <tr><td><strong>裄（ゆき）</strong></td><td>首の付け根〜袖口</td><td>★★★ 最重要</td></tr>
+      <tr><td><strong>身丈（みたけ）</strong></td><td>着物全体の長さ</td><td>★★★ 最重要</td></tr>
+      <tr><td><strong>身幅（みはば）</strong></td><td>着物の横幅</td><td>★★☆ 重要</td></tr>
+    </table>
+    <p>この3つを把握しておけば、リサイクル着物を選ぶときに失敗しにくくなる。</p>
+
+    <h3>自分のサイズの測り方</h3>
+
+    <div class="size-box">
+      <h4><span class="size-num">1</span> 裄（ゆき）の測り方</h4>
+      <ol>
+        <li>背筋を伸ばして自然に立つ</li>
+        <li>首の付け根の骨（第7頸椎）から肩を通って手首のくるぶしまでをまっすぐ測る</li>
+        <li>腕を水平に広げた状態で測ると正確</li>
+      </ol>
+      <div class="formula">目安：自分の裄の長さ ＝ 着物の裄（±2cm以内が理想）</div>
+    </div>
+
+    <div class="size-box">
+      <h4><span class="size-num">2</span> 身丈（みたけ）の測り方</h4>
+      <ol>
+        <li>身長をそのまま使えばよい</li>
+        <li>着物の身丈 ＝ 自分の身長 と同じか少し短め（−5cm程度まで）が目安</li>
+        <li>男性は「おはしょり」を作らないため、身丈が短すぎると裾が上がる</li>
+      </ol>
+      <div class="formula">目安：着物の身丈 ＝ 自分の身長 〜 身長−5cm</div>
+    </div>
+
+    <div class="size-box">
+      <h4><span class="size-num">3</span> 身幅（みはば）の測り方</h4>
+      <ol>
+        <li>腰まわり（ヒップの一番広い部分）をメジャーで測る</li>
+        <li>着物の前幅と後幅を足して2倍にしたものが「実際の腰まわり」の目安</li>
+      </ol>
+      <div class="formula">目安：（前幅＋後幅）×2 ≧ 自分の腰まわり</div>
+    </div>
+
+    <div class="tip">
+      裄のサイズが合わないと袖が短すぎたり長すぎたりして見た目が悪くなる。3つのうち裄が一番シビアなので、まず裄を優先して確認しよう。
+    </div>
+
+    <h3>身長別・着物サイズ目安表</h3>
+    <table>
+      <tr><th>身長</th><th>身丈の目安</th><th>裄の目安</th></tr>
+      <tr><td>160cm前後</td><td>158〜163cm</td><td>66〜68cm</td></tr>
+      <tr><td>165cm前後</td><td>163〜168cm</td><td>68〜70cm</td></tr>
+      <tr><td>170cm前後</td><td>168〜173cm</td><td>70〜72cm</td></tr>
+      <tr><td>175cm前後</td><td>173〜178cm</td><td>72〜74cm</td></tr>
+      <tr><td>180cm前後</td><td>178〜183cm</td><td>74〜76cm</td></tr>
+    </table>
+    <p>あくまでも目安。実際には着物を羽織って確認するのが一番確実だ。</p>
+
+    <h3>着物のサイズ表記の読み方</h3>
+    <p>リサイクル着物の出品ページには「身丈170cm・裄70cm・身幅34cm」のような表記がある。これは着物そのものの寸法なので、自分の体の寸法と照らし合わせて確認する。</p>
+    <p>身幅は「前幅◯cm・後幅◯cm」と分けて記載されることも多い。前幅＋後幅を足して2倍した数値が「腰まわりの目安」になる。</p>
+
+    <h3>サイズが合わなかったときの対処法</h3>
+    <p><strong>裄が短い</strong>：袖口から手が出すぎる。専門店で裄出しのお直しができる（数千円〜）。</p>
+    <p><strong>身丈が短い</strong>：裾がくるぶしより上にくる。男性の場合は多少短くても着こなせるが、5cm以上短いと厳しい。</p>
+    <p><strong>身幅が狭い</strong>：前合わせが難しくなる。2〜3cm程度なら着方で調整できる。</p>
+
+    <div class="share-section">
+      <span class="share-label">この記事をシェアする</span>
+      <a class="share-btn-x" href="https://twitter.com/intent/tweet?url=https://mens-kimono.pages.dev/article18.html&text=着物のサイズ測り方ガイド（裄・身丈・身幅）%20%7C%20男の着物" target="_blank" rel="noopener">&#x1D54F; でシェアする</a>
+    </div>
+
+    <div class="related-section">
+      <h3>関連記事</h3>
+      <div class="related-grid">
+        <a class="related-card" href="article1.html">男性の着物、はじめての一枚の選び方</a>
+        <a class="related-card" href="article13.html">リサイクル着物の選び方・失敗しない見極め方</a>
+      </div>
+    </div>
+
+    <a class="back" href="index.html">← 記事一覧に戻る</a>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">記事一覧</a>
+      <a href="kaitori.html">買取</a>
+      <a href="about.html">店主紹介</a>
+      <a href="contact.html">お問い合わせ</a>
+      <a href="calendar.html">着物カレンダー</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="glossary.html">用語集</a>
+      <a href="privacy.html">プライバシーポリシー</a>
+    </div>
+    &copy; 2026 男の着物 mens-kimono
+  </footer>
+
+  <a id="backToTop" href="#" aria-label="ページトップに戻る">&#9650;</a>
+  <script>
+    window.addEventListener('scroll', function() {
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+    });
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>

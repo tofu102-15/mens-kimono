@@ -111,6 +111,10 @@
     .related-card:hover { border-color: #8b6914; }
     .read-time { color: #aaa; margin-left: 0.5rem; font-size: 0.8rem; }
     @media (max-width: 480px) { .related-grid { grid-template-columns: 1fr; } }
+
+    #backToTop { position: fixed; bottom: 2rem; right: 2rem; background: #1a1a1a; color: #e8e0d0; width: 3rem; height: 3rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 1.1rem; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 999; border: 1px solid #444; }
+    #backToTop.visible { opacity: 1; pointer-events: auto; }
+    #backToTop:hover { background: #3a3a3a; }
   </style>
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="男の着物">
@@ -135,7 +139,7 @@
         <h1 style="margin-top:0.5rem;">男の着物</h1>
       </div>
       <div class="header-mascot">
-        <img src="images/houzuki.png" alt="ほおずき">
+        <img loading="lazy" src="images/houzuki.png" alt="ほおずき">
       </div>
     </div>
   </header>
@@ -155,7 +159,7 @@
 
     <div class="profile-card">
       <div class="profile-icon">
-        <img src="images/着物名人.png" alt="着物名人">
+        <img loading="lazy" src="images/着物名人.png" alt="着物名人">
       </div>
       <div class="profile-info">
         <h2>着物名人</h2>
@@ -194,7 +198,7 @@
 
     <div class="hozuki-section">
       <div class="hozuki-img">
-        <img src="images/houzuki.png" alt="マスコット ほおずき">
+        <img loading="lazy" src="images/houzuki.png" alt="マスコット ほおずき">
       </div>
       <div class="hozuki-text">
         <h4>マスコット「ほおずき」について</h4>
@@ -222,5 +226,14 @@
     </div>
     &copy; 2026 男の着物 mens-kimono
   </footer>
+  <a id="backToTop" href="#" aria-label="ページトップに戻る">&#9650;</a>
+  <script>
+    window.addEventListener('scroll', function() {
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
+    });
+    document.getElementById('backToTop').addEventListener('click', function(e) {
+      e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'});
+    });
+  </script>
 </body>
 </html>
