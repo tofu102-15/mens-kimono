@@ -6,158 +6,307 @@
   <title>男の着物 | mens-kimono</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-      background: #faf9f7;
-      color: #2c2c2c;
+    body { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; background: #faf9f7; color: #2c2c2c; }
+
+    /* ヘッダー */
+    header { background: #1a1a1a; color: #e8e0d0; }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
     }
-    header {
-      background: #1a1a1a;
-      color: #e8e0d0;
-      padding: 2rem 1.5rem;
-      text-align: center;
+    .header-text h1 { font-size: 2.4rem; letter-spacing: 0.25em; line-height: 1.2; }
+    .header-text .tagline { margin-top: 0.5rem; color: #a09080; font-size: 0.85rem; letter-spacing: 0.1em; }
+    .header-text .mascot-name { margin-top: 0.6rem; font-size: 0.8rem; color: #6a5a4a; }
+    .header-mascot {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #8b6914;
+      flex-shrink: 0;
     }
-    header h1 { font-size: 2rem; letter-spacing: 0.2em; }
-    header p { margin-top: 0.5rem; font-size: 0.9rem; color: #a09080; letter-spacing: 0.1em; }
-    nav { display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; }
-    nav a { color: #c8b89a; font-size: 0.85rem; text-decoration: none; letter-spacing: 0.05em; }
-    nav a:hover { color: #e8e0d0; }
-    main {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
+    .header-mascot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+
+    /* ナビ */
+    nav { background: #111; border-top: 1px solid #2a2a2a; }
+    .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; display: flex; }
+    nav a {
+      color: #a09080;
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.9rem 1.5rem;
+      letter-spacing: 0.08em;
+      display: block;
+      transition: color 0.2s, background 0.2s;
+      border-right: 1px solid #2a2a2a;
     }
-    .intro {
-      border-left: 3px solid #8b6914;
-      padding-left: 1.2rem;
-      margin-bottom: 3rem;
-      line-height: 1.9;
-      font-size: 1.05rem;
+    nav a:first-child { border-left: 1px solid #2a2a2a; }
+    nav a:hover { color: #e8e0d0; background: #1a1a1a; }
+
+    /* ヒーロー */
+    .hero {
+      max-width: 900px;
+      margin: 2.5rem auto 0;
+      padding: 0 2rem;
     }
-    .articles h2 {
-      font-size: 1.1rem;
-      letter-spacing: 0.15em;
-      margin-bottom: 1.5rem;
+    .hero-inner {
+      border-left: 4px solid #8b6914;
+      padding: 1.2rem 1.5rem;
+      font-size: 1rem;
+      line-height: 2;
       color: #555;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.5rem;
+      background: #fff;
+      border-radius: 0 4px 4px 0;
     }
+
+    /* メイン */
+    main { max-width: 900px; margin: 2.5rem auto 0; padding: 0 2rem 5rem; }
+
+    /* カテゴリセクション */
+    .category-section { margin-bottom: 3rem; }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 2px solid #1a1a1a;
+    }
+    .category-icon { font-size: 1rem; }
+    .category-header h2 { font-size: 1rem; letter-spacing: 0.15em; color: #1a1a1a; }
+    .category-count { font-size: 0.78rem; color: #aaa; margin-left: auto; }
+
+    /* 記事グリッド */
+    .article-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    /* 記事カード */
     .article-card {
       background: #fff;
       border: 1px solid #e5e0d8;
-      border-radius: 4px;
-      padding: 1.5rem;
-      margin-bottom: 1.2rem;
+      border-radius: 6px;
+      padding: 1.3rem 1.4rem;
       display: block;
       text-decoration: none;
       color: inherit;
-      transition: border-color 0.2s;
+      transition: all 0.2s;
     }
-    .article-card:hover { border-color: #8b6914; }
-    .article-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #2c2c2c; }
-    .article-card p { font-size: 0.9rem; color: #666; line-height: 1.7; }
-    .article-card .date { font-size: 0.8rem; color: #999; margin-top: 0.8rem; }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.8rem;
-      color: #999;
-      margin-top: 4rem;
-      border-top: 1px solid #e5e0d8;
+    .article-card:hover {
+      border-color: #8b6914;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .card-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+      font-weight: bold;
+    }
+    .label-basic  { background: #e8f0e8; color: #2a5a2a; }
+    .label-buy    { background: #e8eaf5; color: #2a2a5a; }
+    .label-life   { background: #f5ede8; color: #5a3a2a; }
+    .label-kaitori{ background: #f5e8e8; color: #5a2a2a; }
+    .article-card h3 { font-size: 0.95rem; line-height: 1.55; margin-bottom: 0.5rem; color: #1a1a1a; }
+    .article-card p { font-size: 0.82rem; color: #777; line-height: 1.75; }
+    .card-date { font-size: 0.73rem; color: #bbb; margin-top: 0.8rem; }
+
+    /* フッター */
+    footer { background: #1a1a1a; color: #6a5a4a; text-align: center; padding: 2.5rem 2rem; font-size: 0.8rem; letter-spacing: 0.08em; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.2rem; }
+    .footer-links a { color: #a09080; text-decoration: none; }
+    .footer-links a:hover { color: #e8e0d0; }
+    .footer-divider { width: 40px; height: 1px; background: #333; margin: 0 auto 1.2rem; }
+
+    /* レスポンシブ */
+    @media (max-width: 600px) {
+      .header-inner { flex-direction: column-reverse; text-align: center; padding: 2rem 1.5rem; }
+      .header-mascot { width: 100px; height: 100px; }
+      .header-text h1 { font-size: 1.9rem; }
+      .nav-inner { flex-wrap: wrap; }
+      nav a { font-size: 0.8rem; padding: 0.7rem 1rem; }
+      .article-grid { grid-template-columns: 1fr; }
+      main, .hero { padding-left: 1.2rem; padding-right: 1.2rem; }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>男の着物</h1>
-    <p>mens-kimono.pages.dev</p>
-    <nav>
-      <a href="index.html">記事</a>
+    <div class="header-inner">
+      <div class="header-text">
+        <h1>男の着物</h1>
+        <p class="tagline">mens-kimono.pages.dev</p>
+        <p class="mascot-name">マスコット：ほおずき（オシキャット）</p>
+      </div>
+      <div class="header-mascot">
+        <img src="images/article1.jpg" alt="マスコット ほおずき">
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">記事一覧</a>
       <a href="kaitori.html">買取</a>
       <a href="contact.html">お問い合わせ</a>
-    </nav>
-  </header>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="hero-inner">
+      着物を着る男性のための、実用的な情報をお届けするブログです。<br>
+      着付けの基本から、普段着としての楽しみ方・買取まで、気軽に読める記事を書いていきます。
+    </div>
+  </div>
+
   <main>
-    <div class="intro">
-      <p>着物を着る男性のための、実用的な情報をお届けするブログです。<br>
-      着付けの基本から、普段着としての楽しみ方まで、気軽に読める記事を書いていきます。</p>
+
+    <!-- 着付け・基本 -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">&#9998;</span>
+        <h2>着付け・基本</h2>
+        <span class="category-count">3記事</span>
+      </div>
+      <div class="article-grid">
+        <a class="article-card" href="article6.html">
+          <span class="card-label label-basic">着付け</span>
+          <h3>男性の着物の着付け手順（初心者向け）</h3>
+          <p>羽織り方・衿の合わせ方・腰紐の結び方まで、はじめて一人で着るための基本手順。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+        <a class="article-card" href="article7.html">
+          <span class="card-label label-basic">帯</span>
+          <h3>帯の結び方（貝ノ口・浪人結び）</h3>
+          <p>男性の帯結びの基本2種類を手順つきで解説。まず貝ノ口を覚えれば大半の場面に対応できる。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+        <a class="article-card" href="article8.html">
+          <span class="card-label label-basic">長襦袢</span>
+          <h3>長襦袢の着方と省略できるケース</h3>
+          <p>長襦袢の役割と着方、普段着なら省略できるケースと代替案。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+      </div>
     </div>
-    <div class="articles">
-      <h2>記事一覧</h2>
-      <a class="article-card" href="article1.html">
-        <h3>男性の着物、はじめての一枚の選び方</h3>
-        <p>はじめて着物を買うなら何を選べばいいか。素材・サイズ・色の選び方を解説します。</p>
-        <div class="date">2026-05-27</div>
-      </a>
-      <a class="article-card" href="article2.html">
-        <h3>普段着として着物を着るために必要なもの</h3>
-        <p>着物・帯・長襦袢・足袋…最低限必要なアイテムをリストアップしました。</p>
-        <div class="date">2026-05-27</div>
-      </a>
-      <a class="article-card" href="article3.html">
-        <h3>着物で外出するときに気をつけること</h3>
-        <p>電車移動、飲食店、天気の変化。実際に着て外に出てみてわかったことをまとめます。</p>
-        <div class="date">2026-05-27</div>
-      </a>
-      <a class="article-card" href="article6.html">
-        <h3>男性の着物の着付け手順（初心者向け）</h3>
-        <p>羽織り方・衿の合わせ方・腰紐の結び方まで、はじめて一人で着るための基本手順をまとめました。</p>
-        <div class="date">2026-06-24</div>
-      </a>
-      <a class="article-card" href="article7.html">
-        <h3>帯の結び方（貝ノ口・浪人結び）</h3>
-        <p>男性の帯結びの基本2種類を手順つきで解説。まず貝ノ口を覚えれば大半の場面に対応できます。</p>
-        <div class="date">2026-06-24</div>
-      </a>
-      <a class="article-card" href="article8.html">
-        <h3>長襦袢の着方と省略できるケース</h3>
-        <p>長襦袢の役割と着方、普段着なら省略できるケースと代替案をまとめました。</p>
-        <div class="date">2026-06-24</div>
-      </a>
-      <a class="article-card" href="article12.html">
-        <h3>季節別の着物の選び方（春夏秋冬）</h3>
-        <p>袷・単衣・薄物の違いと季節ごとのおすすめ素材。最初の一枚を買うベストシーズンも解説します。</p>
-        <div class="date">2026-06-24</div>
-      </a>
-      <a class="article-card" href="article13.html">
-        <h3>リサイクル着物の選び方・失敗しない見極め方</h3>
-        <p>店舗・フリマアプリ別のチェックポイント。におい・シミ・サイズの確認方法と避けるべき出品の特徴。</p>
-        <div class="date">2026-06-24</div>
-      </a>
-      <a class="article-card" href="article14.html">
-        <h3>着物の産地と特徴（久留米絣・大島紬など）</h3>
-        <p>久留米絣・伊勢木綿・大島紬・結城紬など、産地ごとの素材・風合い・価格帯をまとめました。</p>
-        <div class="date">2026-06-24</div>
-      </a>
-      <a class="article-card" href="article9.html">
-        <h3>着物でできること・できないこと（正直なところ）</h3>
-        <p>電車・食事・自転車・雨の日…実際に着てみてわかった、着物生活のリアルをまとめました。</p>
-        <div class="date">2026-06-24</div>
-      </a>
-      <a class="article-card" href="article10.html">
-        <h3>着物のお手入れと保管方法</h3>
-        <p>素材別の洗い方、陰干しのコツ、カビ・虫食いを防ぐ保管術。長く使うための基本をまとめました。</p>
-        <div class="date">2026-06-24</div>
-      </a>
-      <a class="article-card" href="article11.html">
-        <h3>着物×現代ファッションのコーディネート</h3>
-        <p>デニム・タートルネック・羽織だけ…着付け不要で始められる和洋ミックスの組み合わせ例を紹介します。</p>
-        <div class="date">2026-06-24</div>
-      </a>
-      <a class="article-card" href="article4.html">
-        <h3>着物を手放す前に知っておくこと</h3>
-        <p>捨てる前に確認したいこと、買取・フリマ・寄付の選び方。後悔しない手放し方を解説します。</p>
-        <div class="date">2026-06-24</div>
-      </a>
-      <a class="article-card" href="article5.html">
-        <h3>親・祖父の着物を受け継ぐ方法</h3>
-        <p>実家のタンスから出てきた着物とどう向き合うか。サイズ確認・状態チェック・仕立て直しの基本。</p>
-        <div class="date">2026-06-24</div>
-      </a>
+
+    <!-- 選び方・買い方 -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">&#9673;</span>
+        <h2>選び方・買い方</h2>
+        <span class="category-count">4記事</span>
+      </div>
+      <div class="article-grid">
+        <a class="article-card" href="article1.html">
+          <span class="card-label label-buy">選び方</span>
+          <h3>男性の着物、はじめての一枚の選び方</h3>
+          <p>はじめて着物を買うなら何を選べばいいか。素材・サイズ・色の選び方を解説。</p>
+          <div class="card-date">2026-05-27</div>
+        </a>
+        <a class="article-card" href="article12.html">
+          <span class="card-label label-buy">季節</span>
+          <h3>季節別の着物の選び方（春夏秋冬）</h3>
+          <p>袷・単衣・薄物の違いと季節ごとのおすすめ素材。最初の一枚を買うベストシーズンも解説。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+        <a class="article-card" href="article13.html">
+          <span class="card-label label-buy">リサイクル</span>
+          <h3>リサイクル着物の選び方・失敗しない見極め方</h3>
+          <p>店舗・フリマアプリ別のチェックポイント。においやシミの確認方法と避けるべき出品の特徴。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+        <a class="article-card" href="article14.html">
+          <span class="card-label label-buy">産地</span>
+          <h3>着物の産地と特徴（久留米絣・大島紬など）</h3>
+          <p>産地ごとの素材・風合い・価格帯をまとめました。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+      </div>
     </div>
+
+    <!-- 普段使い・ライフスタイル -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">&#9788;</span>
+        <h2>普段使い・ライフスタイル</h2>
+        <span class="category-count">5記事</span>
+      </div>
+      <div class="article-grid">
+        <a class="article-card" href="article2.html">
+          <span class="card-label label-life">道具</span>
+          <h3>普段着として着物を着るために必要なもの</h3>
+          <p>着物・帯・長襦袢・足袋…最低限必要なアイテムをリストアップ。</p>
+          <div class="card-date">2026-05-27</div>
+        </a>
+        <a class="article-card" href="article3.html">
+          <span class="card-label label-life">外出</span>
+          <h3>着物で外出するときに気をつけること</h3>
+          <p>電車移動、飲食店、天気の変化。実際に着て外に出てみてわかったことをまとめます。</p>
+          <div class="card-date">2026-05-27</div>
+        </a>
+        <a class="article-card" href="article9.html">
+          <span class="card-label label-life">生活</span>
+          <h3>着物でできること・できないこと（正直なところ）</h3>
+          <p>電車・食事・自転車・雨の日…着物生活のリアルをまとめました。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+        <a class="article-card" href="article10.html">
+          <span class="card-label label-life">お手入れ</span>
+          <h3>着物のお手入れと保管方法</h3>
+          <p>素材別の洗い方、陰干しのコツ、カビ・虫食いを防ぐ保管術。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+        <a class="article-card" href="article11.html">
+          <span class="card-label label-life">コーデ</span>
+          <h3>着物×現代ファッションのコーディネート</h3>
+          <p>デニム・タートルネック・羽織だけ…和洋ミックスの組み合わせ例を紹介。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 買取・持ち物整理 -->
+    <div class="category-section">
+      <div class="category-header">
+        <span class="category-icon">&#9744;</span>
+        <h2>買取・持ち物整理</h2>
+        <span class="category-count">2記事</span>
+      </div>
+      <div class="article-grid">
+        <a class="article-card" href="article4.html">
+          <span class="card-label label-kaitori">手放す</span>
+          <h3>着物を手放す前に知っておくこと</h3>
+          <p>捨てる前に確認したいこと、買取・フリマ・寄付の選び方。後悔しない手放し方を解説。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+        <a class="article-card" href="article5.html">
+          <span class="card-label label-kaitori">受け継ぐ</span>
+          <h3>親・祖父の着物を受け継ぐ方法</h3>
+          <p>サイズ確認・状態チェック・仕立て直しの基本。実家のタンスから出てきた着物とどう向き合うか。</p>
+          <div class="card-date">2026-06-24</div>
+        </a>
+      </div>
+    </div>
+
   </main>
+
   <footer>
+    <div class="footer-links">
+      <a href="index.html">記事一覧</a>
+      <a href="kaitori.html">買取</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    <div class="footer-divider"></div>
     &copy; 2026 男の着物 mens-kimono
   </footer>
+
 </body>
 </html>
