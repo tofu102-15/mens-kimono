@@ -65,8 +65,18 @@
     @media (max-width: 600px) {
       .mobile-cta { display: block; position: fixed; bottom: 0; left: 0; right: 0; background: #8b6914; z-index: 998; text-align: center; padding: 0.9rem; }
       .mobile-cta a { color: #fff; text-decoration: none; font-size: 0.9rem; letter-spacing: 0.05em; }
-      body { padding-bottom: 3.5rem; }
+      body { padding-bottom: 5rem; }
     }
+
+    .article-cta { background: #1a1a1a; border-radius: 8px; padding: 1.5rem; margin-top: 3rem; }
+    .article-cta-title { font-size: 0.82rem; color: #888; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .article-cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .article-cta-btn { display: block; padding: 0.8rem 1rem; border-radius: 4px; text-decoration: none; font-size: 0.82rem; text-align: center; line-height: 1.5; }
+    .article-cta-btn-primary { background: #8b6914; color: #fff; }
+    .article-cta-btn-primary:hover { background: #a07820; }
+    .article-cta-btn-secondary { background: #2a2a2a; color: #c8b89a; border: 1px solid #444; }
+    .article-cta-btn-secondary:hover { background: #3a3a3a; }
+    @media (max-width: 480px) { .article-cta-grid { grid-template-columns: 1fr; } }
   </style>
   <script type="application/ld+json">
   {
@@ -199,7 +209,15 @@
     <p><strong>身丈が短い</strong>：裾がくるぶしより上にくる。男性の場合は多少短くても着こなせるが、5cm以上短いと厳しい。</p>
     <p><strong>身幅が狭い</strong>：前合わせが難しくなる。2〜3cm程度なら着方で調整できる。</p>
 
-    <div class="share-section">
+      <div class="article-cta">
+    <p class="article-cta-title">この記事を読んだ方へ</p>
+    <div class="article-cta-grid">
+      <a class="article-cta-btn article-cta-btn-primary" href="kaitori.html">&#128176; 着物の買取を相談する</a>
+      <a class="article-cta-btn article-cta-btn-secondary" href="article2.html">&#128203; 必要なアイテム一覧を見る</a>
+    </div>
+  </div>
+
+  <div class="share-section">
       <span class="share-label">この記事をシェアする</span>
       <a class="share-btn-x" href="https://twitter.com/intent/tweet?url=https://mens-kimono.pages.dev/article18.html&text=着物のサイズ測り方ガイド（裄・身丈・身幅）%20%7C%20男の着物" target="_blank" rel="noopener">&#x1D54F; でシェアする</a>
     </div>
