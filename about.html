@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>店主紹介 | 男の着物</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif; background: #faf9f7; color: #2c2c2c; }
+    header { background: #1a1a1a; color: #e8e0d0; }
+    .header-inner { max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .header-text h1 { font-size: 1.8rem; letter-spacing: 0.2em; }
+    .header-text a { color: #a09080; font-size: 0.85rem; text-decoration: none; }
+    .header-text a:hover { color: #e8e0d0; }
+    .header-mascot { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid #8b6914; flex-shrink: 0; }
+    .header-mascot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    nav { background: #111; border-top: 1px solid #2a2a2a; }
+    .nav-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; display: flex; }
+    nav a { color: #a09080; text-decoration: none; font-size: 0.85rem; padding: 0.9rem 1.5rem; letter-spacing: 0.08em; display: block; transition: color 0.2s, background 0.2s; border-right: 1px solid #2a2a2a; }
+    nav a:first-child { border-left: 1px solid #2a2a2a; }
+    nav a:hover { color: #e8e0d0; background: #1a1a1a; }
+
+    main { max-width: 720px; margin: 3rem auto; padding: 0 1.5rem; }
+
+    /* プロフィールカード */
+    .profile-card {
+      background: #fff;
+      border: 1px solid #e5e0d8;
+      border-radius: 8px;
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+    }
+    .profile-icon {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #8b6914;
+      flex-shrink: 0;
+    }
+    .profile-icon img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .profile-info h2 { font-size: 1.4rem; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+    .profile-info .subtitle { font-size: 0.82rem; color: #888; margin-bottom: 1rem; }
+    .profile-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+    .profile-tag { background: #f4f2ee; border: 1px solid #d5cfc5; font-size: 0.78rem; padding: 0.2rem 0.7rem; border-radius: 2px; color: #555; }
+    .profile-info p { font-size: 0.92rem; color: #555; line-height: 1.9; }
+
+    h3 { font-size: 1.1rem; margin: 2.5rem 0 1rem; color: #3a3a3a; border-left: 3px solid #8b6914; padding-left: 0.8rem; }
+    p { line-height: 2; margin-bottom: 1.2rem; font-size: 1rem; }
+    .tip { background: #f4f2ee; border-left: 3px solid #8b6914; padding: 1rem 1.2rem; margin: 1.5rem 0; font-size: 0.95rem; line-height: 1.9; }
+
+    /* ほおずきセクション */
+    .hozuki-section {
+      background: #fff;
+      border: 1px solid #e5e0d8;
+      border-radius: 8px;
+      padding: 1.8rem;
+      margin: 2.5rem 0;
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .hozuki-img {
+      width: 130px;
+      height: 130px;
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 1px solid #e5e0d8;
+    }
+    .hozuki-img img { width: 100%; height: 100%; object-fit: cover; }
+    .hozuki-text h4 { font-size: 1rem; margin-bottom: 0.6rem; color: #1a1a1a; }
+    .hozuki-text p { font-size: 0.9rem; color: #555; line-height: 1.9; margin: 0; }
+
+    /* お問い合わせCTA */
+    .cta { text-align: center; margin: 3rem 0; background: #1a1a1a; border-radius: 6px; padding: 2rem; }
+    .cta p { color: #a09080; font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.8; }
+    .cta a { display: inline-block; background: #8b6914; color: #fff; padding: 0.9rem 2.5rem; text-decoration: none; font-size: 0.95rem; letter-spacing: 0.1em; border-radius: 2px; }
+    .cta a:hover { background: #a07820; }
+
+    .back { display: inline-block; margin-top: 2rem; color: #8b6914; text-decoration: none; font-size: 0.9rem; }
+    .back:hover { text-decoration: underline; }
+
+    footer { background: #1a1a1a; color: #6a5a4a; text-align: center; padding: 2.5rem 2rem; font-size: 0.8rem; letter-spacing: 0.08em; margin-top: 4rem; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+    .footer-links a { color: #a09080; text-decoration: none; }
+    .footer-links a:hover { color: #e8e0d0; }
+
+    @media (max-width: 600px) {
+      .header-inner { flex-direction: column; }
+      .profile-card { flex-direction: column; align-items: center; text-align: center; }
+      .profile-tags { justify-content: center; }
+      .hozuki-section { flex-direction: column; align-items: center; text-align: center; }
+      .nav-inner { flex-wrap: wrap; }
+      nav a { padding: 0.7rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="header-text">
+        <a href="index.html">← 男の着物トップへ</a>
+        <h1 style="margin-top:0.5rem;">男の着物</h1>
+      </div>
+      <div class="header-mascot">
+        <img src="images/article1.jpg" alt="ほおずき">
+      </div>
+    </div>
+  </header>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html">記事一覧</a>
+      <a href="kaitori.html">買取</a>
+      <a href="about.html">店主紹介</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <div class="profile-card">
+      <div class="profile-icon">
+        <img src="images/article1.jpg" alt="着物名人">
+      </div>
+      <div class="profile-info">
+        <h2>着物名人</h2>
+        <p class="subtitle">男の着物 管理人 / 愛知県在住</p>
+        <div class="profile-tags">
+          <span class="profile-tag">着物歴20年以上</span>
+          <span class="profile-tag">愛知県</span>
+          <span class="profile-tag">アンティーク着物買取</span>
+          <span class="profile-tag">オシキャット愛好家</span>
+        </div>
+        <p>20代から男性着物を着続けて20年以上。着物を普段着として楽しみながら、捨てられてしまうアンティーク着物を次の人の手に届けることを大切にしています。</p>
+      </div>
+    </div>
+
+    <h3>着物を始めたきっかけ</h3>
+    <p>20代のころ、友人にすすめられて初めて着物を着たのがきっかけです。最初は「自分には難しそう」と思っていましたが、着てみると思いのほか快適で、普段着として続けるようになりました。</p>
+    <p>男性の着物は女性に比べて着付けがシンプルで、慣れれば洋服と変わらない感覚で着られます。20代のあのとき友人がすすめてくれなければ、今もこうして着物を着ていなかったと思います。</p>
+
+    <h3>20年以上着て感じること</h3>
+    <p>イベントや集まりに着物で出かけることが多く、着物を通じてたくさんの人と話す機会を得てきました。「着物を着ている男性は珍しい」と声をかけていただくことも多く、着物がコミュニケーションのきっかけになることを実感しています。</p>
+    <p>長く着続けてわかったのは、着物は「難しいもの」ではなく「慣れるもの」だということ。最初の一歩を踏み出す人の背中を押せる情報を発信したいと思ってこのブログを始めました。</p>
+
+    <div class="tip">
+      着物を着始めた20代のころと比べると、今は着付けにかかる時間が10分ほどになりました。繰り返すことで体が覚えていきます。
+    </div>
+
+    <h3>買取を始めた理由</h3>
+    <p>着物に長く関わる中で、状態のよいアンティーク着物が「古いから」という理由だけで捨てられてしまう場面を何度も目にしてきました。</p>
+    <p>男性の着物は女性のものに比べてもともと流通量が少なく、アンティークのものはとくに希少です。捨てるには惜しい着物を、着てくれる人の手に届けたい。そう思って買取を始めました。多少の汚れやシミがあるものでも積極的に引き取っているのは、そういった理由からです。</p>
+
+    <div class="hozuki-section">
+      <div class="hozuki-img">
+        <img src="images/article1.jpg" alt="マスコット ほおずき">
+      </div>
+      <div class="hozuki-text">
+        <h4>マスコット「ほおずき」について</h4>
+        <p>「世界で一番美しい猫の図鑑」でオシキャットという猫種を知り、その独特の斑点模様に一目惚れしました。その後たまたまオシキャットのブリーダーさんと知り合うご縁があり、ほおずきを迎えることになりました。着物と同じくらい、ほおずきに日々癒されています。</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <p>着物に関するご相談・買取のお問い合わせはお気軽にどうぞ。<br>アンティーク着物から普段着まで、幅広くお答えします。</p>
+      <a href="contact.html">お問い合わせはこちら</a>
+    </div>
+
+    <a class="back" href="index.html">← トップに戻る</a>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">記事一覧</a>
+      <a href="kaitori.html">買取</a>
+      <a href="about.html">店主紹介</a>
+      <a href="contact.html">お問い合わせ</a>
+    </div>
+    &copy; 2026 男の着物 mens-kimono
+  </footer>
+</body>
+</html>
