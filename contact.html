@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -89,6 +89,8 @@
     gtag('js', new Date());
     gtag('config', 'G-MCT2HQM328');
   </script>
+  <link rel="stylesheet" href="assets/microsoft-ads.css">
+  <script defer src="assets/microsoft-ads.js"></script>
 </head>
 <body>
   <header>
@@ -123,7 +125,7 @@
         <strong style="display:block; margin-bottom:0.2rem;">LINEでも受け付けています</strong>
         着物の写真を送りながら相談できます。買取のご相談に特に便利です。
       </div>
-      <a href="https://lin.ee/PKXRxX8"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+      <a href="https://lin.ee/PKXRxX8" data-ms-line><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
     </div>
 
     <p style="font-size:0.82rem; color:#888; margin-bottom:1.5rem; text-align:center;">またはフォームからお問い合わせください ↓</p>
@@ -138,7 +140,7 @@
       </ul>
     </div>
 
-    <form action="https://formsubmit.co/tofu102.15@gmail.com" method="POST">
+    <form id="contact-form" action="https://formsubmit.co/tofu102.15@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="【男の着物】お問い合わせが届きました">
       <input type="hidden" name="_next" value="https://mens-kimono.pages.dev/thanks.html">
       <input type="hidden" name="_captcha" value="false">
@@ -168,7 +170,9 @@
       </div>
 
       <button type="submit" class="submit-btn">送信する</button>
+      <p id="contact-status" role="status" aria-live="polite"></p>
     </form>
+    <script defer src="assets/contact-form.js"></script>
 
     <a class="back" href="index.html">← トップに戻る</a>
   </main>
